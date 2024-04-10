@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+      //========================= Destructuring ========================
+
+      // Destructuring assignment is used to unpack values from an array, or properties from objects into distinct variable 
+
+let arr = [3, 5, 8, 9, 12, 14];
+////////// No need to do this:
+// let a = arr[0]
+// let b = arr[1]
+let [a, b, c, d, ...rest] = arr; ///////// The three dots ( ... ) is rest operator
+console.log(a, b, c, d, rest);
+
+let [a1, , b1, ...rest1] = arr;
+console.log(a, b, rest);
+
+// Similarly we can destructure objects on the left hand side of the assignment
+let { a2, b2 } = { a: 1, b: 5 };
+// console.log(a, b)
+
+//========================= Spread Syntax ==============================
+
+// JavaScript uses three dots (...) for both the rest and spread operators. But these two operators are not the same.
+// The main difference between rest and spread is that the rest operator puts the rest of some specific user-supplied values into a JavaScript array. But the spread syntax expands iterables into individual elements.
+
+let arr1 = [3, 5, 8];
+let obj1 = { ...arr1 };  ////// Also return key values   //{0:3,1:5,2:8}
+console.log(obj1);
+
+function sum(v1, v2, v3) {
+  return v1 + v2 + v3;
+}
+
+console.log(sum(...arr1));
+
+let obj2 = {
+  name: "Hanxla",
+  company: "Company xyz",
+  address: "XYZ",
+};
+
+console.log({ ...obj2, name: "John", company: "ABC" });
+console.log({ name: "John", company: "ABC", ...obj2 }); // This will print the obj2 object without changing any values
+
+let anarr = [10,20,30,40,50,60];
+let  [aa,bb,cc = 100,...rem] = anarr
+console.log(aa,rem,cc)
+  </script>
+</body>
+</html>
+

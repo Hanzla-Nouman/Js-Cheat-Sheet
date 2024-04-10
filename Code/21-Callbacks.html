@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /////////////// Synchronous and Asynchrounus Programming ///////////////
+        // Synchronous Programming:
+        //    Syncronous actions are the actions that initiate and finish one-by-one 
+        // Asynchronous Programming:
+        //    Asyncronous actions are the actions that we initiate now and they finish late  e.g; setTimeout
+
+
+        ///////////////////////// Callback Functions ///////////////////////
+        // A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete an action.
+
+        function loadScript(src, callback) {
+            let script = document.createElement("script");
+            script.src = src;
+            script.onload = () => { console.log("Script loaded with SRC: " + src) }
+            callback(src)
+            document.body.append(script)
+        }
+        const loaded1 = (src) => { alert("1 is loaded : " + src) }
+        const loaded2 = () => { alert("2 is loaded") }
+
+        loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js", loaded1)
+
+        //////////////  Now we can do like this 
+        // loadScript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",  (loaded) = ()=>  { alert("loaded 1")})
+
+        ///////////////////////// Handling Errors ///////////////////////
+
+        function loadScript(src, callback) {
+            let script = document.createElement("script");
+            script.src = src;
+            script.onload = () => {
+                console.log("Script loaded with SRC: " + src)
+                callback(src, null)
+            }
+            script.onerror = () => {
+                console.log("Error loaded with SRC: " + src)
+                callback(new Error("Src got some error"))
+            }
+
+            document.body.append(script)
+        }
+
+        const loaded3 = (src, err) => {
+            if (err) {
+                console.log("Error Occured")
+            }
+            alert("1 is loaded : " + src)
+        }
+        loadScript("https://cdn.jsdelivr.net/npm/bootsp@5.3.2/dist/js/bootstrap.bundle.min.js", loaded3)
+
+
+        ///////////////////////// Callback Hell & Pyramid of Doom///////////////////////
+
+        // When we have callback inside callbacks, the code gets difficuty to manage
+        // loadScript("https://cdn.jsdelivr.net/npm/bootsp@5.3.2/dist/js/bootstrap.bundle.min.js", function loadplz(src, err) {
+        //     if (err) {
+        //         console.log("fix bug or send alternate")
+        //     }
+        //     loadScript("https://cdn.jsdelivr.net/npm/bootsp@5.3.2/dist/js/bootstrap2.bundle.min.js", function loadplz(src, err) {
+        //         if (err) {
+        //             console.log("fix bug or send alternate")
+        //         }
+        //         loadScript("https://cdn.jsdelivr.net/npm/bootsp@5.3.2/dist/js/bootstrap3.bundle.min.js", function loadplz(src, err) {
+        //             if (err) {
+        //                 console.log("fix bug or send alternate")
+        //             }
+        //             loadScript("https://cdn.jsdelivr.net/npm/bootsp@5.3.2/dist/js/bootstrap4.bundle.min.js", function loadplz(src, err) {
+        //                 if (err) {
+        //                     console.log("fix bug or send alternate")
+        //                 }
+        //                 loadScript("https://cdn.jsdelivr.net/npm/bootsp@5.3.2/dist/js/bootstrap5.bundle.min.js", function loadplz(src, err) {
+        //                     if (err) {
+        //                         console.log("fix bug or send alternate")
+        //                     }
+
+        //                 }
+        //                 )
+
+        //             }
+        //             )
+
+        //         }
+        //         )
+
+        //     }
+        //     )
+
+        // }
+        // )
+        ///// As calls become more nested, the code becomes deeper and increasingly more difficult to manage, especially if we have real code.This is sometime called callback hell or pyramid of doom.The pyramid od these calls grows toeards right with every asynchronous action. Soon it Spiral out of control. So this way of coding isnt very good.But we can use in normal problems
+
+
+
+
+
+    </script>
+</body>
+
+</html>

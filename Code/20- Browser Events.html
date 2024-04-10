@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" onmouseenter="alert('hovering')">
+        <button onclick="alert('hi')">onclick</button>
+    </div>
+    <button id="btn">Alert</button>
+    <button id="btn2">Alert2</button>
+    
+    <script>
+        ///////////////////////// Browser Events ////////////////////////
+        // A event is a signal that something has happened
+        // All the DOM nodes generate such signal
+        // some imp events are:
+        // Mouse events : click, contextmenu(right click), mouseover/mouseout, mousedown/mouseup, mousemove
+        // KeyBoard events : keydown and keyup
+        // Form element events : submit,focus etc
+        // Document events : DOMContentLoaded
+
+        let a = document.getElementsByClassName("container")[0]
+        a.onclick=()=>{
+         console.log("clicked")
+        }
+
+        //////////////// addEventListener & removeEventListener ///////////////
+        // addEventListener is used to assign multiple handlers to an event
+        // elem.addEventListener( event , handler)
+        // elem.removeEventListener( event , handler)
+
+        let x = function(){
+            alert("Hello world 1")
+        }
+        let y = function(){
+            alert("Hello world 2")
+        }
+
+        btn.addEventListener('click',x)
+        btn.addEventListener('click',y)
+        a = prompt("Enter 0 to to cancel hello world 1")
+        if (a == "0"){
+            btn.removeEventListener('click',x)
+        }
+
+        ///////////////////// Event Object ///////////////////////
+        // When an event happens, the browse  creates an event object, puts details into it and passes it an an argument to the handler
+        // elem.onlick = function(e){
+            //                 ..........
+            //                   }
+        // e.type : Event type
+        // e.currentTarget : Element that handled the event
+        // e.clientX/clienyY : Coardinates the cursor
+
+        let z = function(e){
+            console.log("hi")
+            console.log(e)
+            console.log(e.target)
+            console.log(e.clientX)
+            console.log(e.clientY)
+        }
+        btn2.addEventListener('click',z)
+        
+
+    </script>
+</body>
+</html>

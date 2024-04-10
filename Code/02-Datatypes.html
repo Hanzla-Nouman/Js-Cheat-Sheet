@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //==== 1. Primitive Data Types
+
+        // a. Number
+        // The number type represents both integers and floating-point numbers. JavaScript uses a 64-bit floating-point format to represent numbers.
+        let num = 123;  // Integer
+        let pi = 3.14;  // Floating-point
+
+
+        // b. String
+        // The string type is used to represent textual data and is enclosed in single (') or double (") quotes.
+        let name = 'John';  // Using single quotes
+        let message = "Hello, World!";  // Using double quotes
+
+        // c. Boolean
+        // The boolean type represents a logical value and can have two values: true or false.
+        let isTrue = true;
+        let isFalse = false;
+
+        // d. Undefined
+        // The undefined type is assigned to variables that have been declared but not initialized.
+        let x;
+        console.log(x);  // Output will be: undefined
+
+        // e. Null
+        // The null type represents a deliberate absence of any value or object.
+        let y = null;
+
+        // f. BigInt
+        // The bigint type represents whole numbers larger than 2^53 - 1 and is indicated by appending n to the end of the number.
+        let bigValue = 1234567890123456789012345678901234567890n;
+
+
+        //==== 2. Object Data Type
+
+        // a. Object
+        // The object type is a complex data type that allows you to store collections of key-value pairs, often used for representing entities.
+        let person = {
+            firstName: 'John',
+            lastName: 'Doe',
+            age: 30
+        };
+
+        //==== 3. Special Data Types
+
+        // a. Symbol
+        // The symbol type is used to create unique identifiers for object properties.
+        const sym1 = Symbol('description');
+        const sym2 = Symbol('description');
+        console.log(sym1 === sym2);  // Output will be: false
+    </script>
+</body>
+
+</html>

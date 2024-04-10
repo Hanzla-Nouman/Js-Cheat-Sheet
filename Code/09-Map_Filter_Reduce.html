@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  //=========================== map() Method ============================//
+
+
+// In JavaScript, the map() method is a higher-order function used to iterate over an array and create a new array by applying a provided function to each element of the original array. The main characteristic of map() is that it does not modify the original array but instead returns a new array with the transformed elements.
+
+// Basic Syntax:
+// const newArray = originalArray.map(callback(currentValue, index, array) {
+//   // Return element for newArray
+// });
+// Parameters:
+// callback: The function to execute on each element in the array.
+// currentValue: The current element being processed in the array.
+// index (Optional): The index of the current element being processed.
+// array (Optional): The array map was called upon.
+// Example:
+const numbers2 = [1, 2, 3, 4, 5];
+
+const squaredNumbers2 = numbers2.map(function(num) {
+  return num * num;
+});
+console.log(squaredNumbers2);  // Outputs: [1, 4, 9, 16, 25]
+
+// In this example, the map() function applies the squaring operation to each element of the numbers array, resulting in a new array called squaredNumbers. The original numbers array remains unchanged.
+
+// Arrow Function Syntax (ES6):
+// With ES6 arrow function syntax, you can make the code more concise:
+
+
+const numbers3 = [1, 2, 3, 4, 5];
+
+const squaredNumbers3 = numbers3.map(num => num * num);
+
+console.log(squaredNumbers3);  // Outputs: [1, 4, 9, 16, 25]
+// In summary, the map() method in JavaScript provides a clean and efficient way to transform each element of an array by applying a specified function, resulting in a new array without modifying the original one.
+
+//=========================== filter() Method ============================//
+
+// Certainly! In JavaScript, the filter() method is a built-in higher-order function that allows you to create a new array containing elements from the original array that meet a specified condition. It does not modify the original array but returns a new one based on the given criteria.
+
+// Syntax:
+// const newArray = array.filter(callback(element[, index, [array]])[, thisArg]);
+
+// callback: A function that tests each element of the array. It takes three arguments:
+// element: The current element being processed in the array.
+// index (Optional): The index of the current element being processed.
+// array (Optional): The array filter was called upon.
+// thisArg (Optional): An object to which the this keyword can refer in the callback function.
+
+// Example:
+// Suppose you have an array of numbers, and you want to create a new array containing only the numbers greater than 3:
+const numbers1 = [1, 2, 3, 4, 5];
+
+const filteredNumbers1 = numbers1.filter(function(num) {
+  return num > 3;
+});
+console.log(filteredNumbers1);  // Outputs: [4, 5]
+
+// Using Arrow Function (ES6):
+// With ES6 arrow functions, you can make the code more concise:
+
+
+const numbers = [1, 2, 3, 4, 5];
+const filteredNumbers = numbers.filter(num => num > 3);
+console.log(filteredNumbers);  // Outputs: [4, 5]
+
+// In summary, the filter() method in JavaScript provides a powerful and concise way to create a new array containing elements that satisfy a specific condition or criteria, without altering the original array.
+
+
+//=========================== reduce() Method ============================//
+
+
+// In JavaScript, the reduce() method is another higher-order function available on arrays. It's used to execute a reducer function on each element of the array, resulting in a single output value. The primary purpose of reduce() is to transform an array into a single value based on some computation or accumulation logic defined by the reducer function.
+
+// Basic Syntax:
+// const result = array.reduce(callback(accumulator, currentValue, index, array) {
+//   // Return updated accumulator value
+// }, initialValue);
+
+// Parameters:
+// callback: The reducer function to execute on each element of the array, which takes four arguments:
+// accumulator: Accumulates the callback's return values. It accumulates the value returned by the last invocation of the callback or initialValue, if provided.
+// currentValue: The current element being processed in the array.
+// index (Optional): The index of the current element being processed.
+// array (Optional): The array reduce was called upon.
+// initialValue (Optional): A value to use as the first argument to the first call of the callback. If not provided, the first element of the array will be used as the initial accumulator value, and callback will not be invoked for that element.
+// Example: Summing Numbers
+const numbers4 = [1, 2, 3, 4, 5];
+const sum2 = numbers4.reduce(function(accumulator, currentValue) {
+  return accumulator + currentValue;
+}, 0);  // Initial value of accumulator is 0
+
+console.log(sum2);  // Outputs: 15 (1 + 2 + 3 + 4 + 5)
+
+// Arrow Function Syntax (ES6):
+// Using ES6 arrow function syntax can make the code more concise:
+const numbers5 = [1, 2, 3, 4, 5];
+
+const sum = numbers5.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+console.log(sum);  // Outputs: 15 (1 + 2 + 3 + 4 + 5)
+// Key Points:
+// Accumulation: The reduce() method is excellent for accumulating a single value (e.g., summing numbers, concatenating strings, finding max/min values).
+// Single Output: Unlike map() or filter(), which return new arrays, reduce() returns a single value after processing all elements of the array.
+// Initial Value: Providing an initial value is optional. If not provided, the first element of the array becomes the initial accumulator value, and iteration starts from the second element.
+// In essence, the reduce() method in JavaScript is a powerful tool for reducing an array into a single value by applying a specified reducer function to each element in the array.
+  </script>
+</body>
+</html>
+
+
+
+
+

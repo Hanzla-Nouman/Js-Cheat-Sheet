@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    outer start
+    <div id="containerid" class="container">
+        inner start
+        <div><h1>Hey I am first element</h1></div>
+        inner end
+    </div>
+    outer end
+    <div id="div2"></div>
+    <script>
+     //////////////////// Insertion Methods ///////////////////////
+     // this is an ordinary way of insertion
+    let a =    document.getElementById("containerid")
+    a.innerHTML = a.innerHTML + "<h6>i am hanxi</h6>"
+
+    // we have some special insertion methods in Javascript
+    let inst = document.createElement('div')
+    inst.innerHTML = "<h1>Inserted</h1>"
+    a.append(inst) // => append at the end of node
+    // a.prepend(inst)  // => insert at the  begining of node
+    // a.before(inst) // => insert before node
+    // a.after(inst)  // => insert after node
+    // a.after(inst)  // => insert after node
+    // a.replaceWith(inst)  // => replaces node with the given node
+
+    ////////////// insertAdjacentHTML, insertAdjacentElement and insertAdjacentText//////////
+    // The method is used to insert HTML. The first parameter is a code word, specifying where to insert    
+
+    // "beforebegin" => insert html immediately before element
+    div2.insertAdjacentHTML('beforebegin',"<h4>ASSLAMUALIKUM</h4>")
+    // "afterbegin" => insert html into element at the begining
+    div2.insertAdjacentHTML('afterbegin',"<h4>ASSLAMUALIKUM</h4>")
+    // "beforeend"  => insert html into element after the end
+    div2.insertAdjacentHTML('beforeend',"<h4>ASSLAMUALIKUM</h4>")
+    // "afterend" => insert html immediately after element
+    div2.insertAdjacentHTML('afterend',"<h4>ASSLAMUALIKUM</h4>")
+
+    ////////////////////// Node removal /////////////////////
+    // To remove a node there is a method node.remove()
+    // div2.remove()
+    
+
+    </script>
+</body>
+</html>

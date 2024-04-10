@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+<script>
+////// There is also a special syntax to work with promises in JS //////
+
+///////  An async fuction always return a promise,other values are automatically wrapped in a promise automatically //////
+
+async function exampleAsyncFunction() {
+    // This value will be automatically wrapped in a resolved promise
+    return "Hello, world!";
+}
+////// we can use "exampleAsyncFunction().then" bcz exampleAsyncFunction() is returning a promise //////
+
+/////// The "await" keyword is an alternative to using ".then()" with promises in JavaScript ///////
+
+async function harry() {
+
+    let delhiWeather = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                    resolve("27 Deg")
+            }, 2000)
+    })
+
+    let bangaloreWeather = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                    resolve("21 Deg")
+            }, 1000)
+    })
+
+    // delhiWeather.then(alert)
+    // bangaloreWeather.then(alert)
+
+    console.log("Fetching Delhi Weather Please wait ...")
+    let delhiW = await delhiWeather                       // this will not allow to execute bangaloreWeather
+    console.log("Fetched Delhi Weather: " + delhiW) 
+    console.log("Fetching Bangalore Weather Please wait ...")
+    let bangaloreW = await bangaloreWeather
+    console.log("Fetched Bangalore Weather: " + bangaloreW)
+    return [delhiW, bangaloreW]
+}
+
+const cherry = async () => {
+    console.log("Hey I am cherry and I am not waiting ")
+}
+
+const main1 = async () => {
+    console.log("Welcome to weather control room")
+    let b = await cherry()
+    let a = await harry()
+
+}
+main1()
+</script>
+
+</body>
+</html>

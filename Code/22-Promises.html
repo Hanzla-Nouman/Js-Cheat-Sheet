@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //-------------------- Promises ------------------------/
+
+        // The solution to the callback hell is promises.A promise is a "promise of code execution". The code either executes o fails, in both cases the subscriber will be notified.
+        // resolve and reject are two provide callbacks provided by Javascript itself.They are called like this:
+        // resolve(value) => if the job is finished successfully
+        // reject(error) => if the job fails
+
+        // let promise = new Promise(function(resolve,reject){
+        //     alert("Hello")
+        //     resolve("56")
+        // })
+        // console.log(promise)
+
+        //--------------------- Why Promises ------------------------
+
+        // Fetch google
+        // Fetch data from API
+        // Fetch pictures
+        // print downloading
+
+        // we can say that for parallel execution we use promises
+
+        //-------------------------- Promise .then & .catch ---------------------------
+
+        // The consuming code can receive the the final result of a promise through then & catch.The most fundamental one is then
+        // If we are interested only in successful completions,we can provide only one function argument to .then()
+        //    let promise2 = new Promise(function(resolve,reject){
+        //        setTimeout(() => {
+        //         console.log("Called first Time")
+        //        }, 3000);
+        //     })
+        //   promise2.then(
+        //         console.log("Called second Time")
+        //   )
+        // If we are interested only in errors, we can use null as the first argument: .then(null,f) or we can use catch
+        //   let promise3 = new Promise(function(resolve,reject){
+        //        reject(new Error("HEY ERROR"))
+        //     })
+        // promise3.catch((error)=>{
+        //     console.log("HEY ERROR 2")
+        // })
+
+
+        //-------------------------- Promise chaining ----------------------------
+
+        // We can chain promises and make them pass the resolved values to another like this
+
+        // p.then(function(result)=>{             // p is a promise
+        //      alert(result);                          
+        //      return 2;
+        //   })
+        // THe idea is to pass the result through the chain of the handlers
+        // Here is the flow of execution:
+        // 1. The initial promise resolves in 1 sec(Assumption)
+        // 2. The next .then() handler is then called, which returns a new promise(resolved with 2 value )
+        // 3. The next .then() gets the result of previous one and this keeps on going 
+
+        // Every call to .then() returns a new promise whose value is passed to the next one and so on. we can even create custom promises inside .then()
+
+        // let p1 = new Promise((resolve,reject)=>{
+        //     setTimeout(() => {
+        //         console.log("Resolved after 2 sec")
+        //         resolve("Promise 1");
+        //     }, 2000);
+        // })
+
+        // p1.then((value)=>{
+        //     console.log(value)
+        //     let p2 = new Promise((resolve,reject)=>{
+        //         setTimeout(() => {
+        //             resolve("Promise 2")
+        //         }, 2000);
+        //     })
+        //     return p2
+        // }).then((value)=>{
+        //     console.log("WE are done")
+        //     return 2
+        // }).then((value)=>{ console.log("We are final done")})
+
+        // It creates a Promise (p1), and when that promise is resolved, it returns another Promise (p2). This process continues, creating a chain of promises.
+        // one more example:
+        // let promiseChain = new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         console.log("Promise Chain Resolved");
+        //         resolve(1);
+        //     }, 1000);
+        // });
+
+        // promiseChain.then((value) => {
+        //     console.log("First Handler:", value);
+        //     return value + 1;
+        // }).then((value) => {
+        //     console.log("Second Handler:", value);
+        //     return value * 2;
+        // }).then((value) => {
+        //     console.log("Third Handler:", value);
+        //     // No return, implicitly resolves to undefined
+        // }).catch((error) => {
+        //     console.error("Error:", error);
+        // });
+
+        // In this example, each then block depends on the resolution of the previous one, forming a promise chain. Each then handler receives the result of the previous resolution.
+
+
+        //------------------------ Converting loadscript function in promise ------------------------//
+
+        // const loadScript = (src)=>{
+        //     return new Promise((resolve,reject)=>{
+        //         let script = document.createElement("script")
+        //         script.src = src
+        //         document.body.append(script)
+        //         script.onload = () =>{
+        //             resolve(1)
+        //             console.log("SCrip added successfully")
+        //         }
+        //         script.onerror = () =>{ reject(0)
+        //         console.log("facing some errors")
+        //         }
+        //     })
+        // }
+
+        // let ls1 = loadScript("https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js")
+        // ls1.then((value)=>{
+        //     console.log(value)
+        //     console.log("Chwlwin maar raha hun")
+        // })
+        // .then((value)=>{
+        //     return loadScript("https://cdnd.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js")
+        // }).catch((error)=>{
+        //     console.log("having soome problems to load the script")
+        // })
+
+
+
+
+        //--------------------Attaching Multiple Handlers to a Promise------------------------
+        // We can attach multiple handlers to one promise. They dont pass the result to eachother;instead they process it independently
+        // let p is a promise
+        // p.then(handler1)  
+        // p.then(handler2)  // all will run independently
+        // p.then(handler3)
+
+        // let promise4 = new Promise((resolve,reject)=>{
+        //         console.log("This promise is not resolved")
+        //         setTimeout(() => {
+        //             resolve(1);
+        //         }, 2000);
+        // })
+        // promise4.then(()=>{
+        //     console.log("Congratulations this promise is resolved now")
+        // })
+        // promise4.then(()=>{
+        //     console.log("hurray")
+        // })
+        // On the other hand, the second code block is not an example of promise chaining. It creates a single promise (promise4), and then attaches multiple then handlers to it independently. These handlers are not part of a chain; they are separate and will all be executed when the promise is resolved. The order of execution for the then handlers is not guaranteed. While it's valid to have multiple then handlers on a promise, it's not the same as chaining, where each then depends on the resolution of the previous one.
+        // One more example
+        // let independentPromise = new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         console.log("Independent Promise Resolved");
+        //         resolve(1);
+        //     }, 1000);
+        // });
+
+        // independentPromise.then((value) => {
+        //     console.log("Handler 1:", value);
+        // }).then((value) => {
+        //     console.log("Handler 2:", value);
+        // });
+
+        // independentPromise.then((value) => {
+        //     console.log("Handler 3:", value);
+        // }).then((value) => {
+        //     console.log("Handler 4:", value);
+        // });
+        // In this example, multiple then handlers are attached independently to the same promise. Each set of handlers is not part of a chain; they are executed independently when the promise is resolved. The order of execution between the two sets of handlers is not guaranteed.
+
+
+        //---------------------------- The Promise API ---------------------------------
+        // There are 6 static methods of Prmise Class:
+        
+        // 1. Promise.all(promises) => Wait for all promises to resolve and returns the array of their results.If anyone fails, it becomes the error & all others are ignored
+        // 2. Promise.allSettled(promises) => Wait for all promises to settle and returns the array of objects with status and value.If anyone through error the execution will not stop
+        // 3. Promise.race(promises) => Wait for the first promise to settle and its result/error becomes the outcome
+        // 4. Promise.any(promises) => Wait for the first promise to fulfill(& not rejected), and its results becomes the outcome. Throws aggregate error if all athe promises are rejected
+        // 5. Promise.resolve(value) => Makes a resolves promise with the given value
+        // 5. Promise.reject(value) => Makes a rejected promis with the given value
+
+        let promise_eg1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("value 1")
+            }, 2000);
+        })
+        let promise_eg2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("value 2")
+            }, 1000);
+        })
+        let promise_eg3 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("value 3")
+            }, 3000);
+        })
+        let promise_eg4 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject(new Error("Error is ...."))
+                resolve("value 7")
+
+            }, 3000);
+        })
+
+        // promise_eg1.then((value)=>{
+        //     console.log(value)
+        // })
+        // promise_eg2.then((value)=>{
+        //     console.log(value)
+        // })
+        // promise_eg3.then((value)=>{
+        //     console.log(value)
+        // })
+        // promise_eg4.then((value)=>{
+        //     console.log(value)
+        // })
+
+        let promise_all = Promise.all([promise_eg1, promise_eg2, promise_eg3])
+        promise_all.then((value) => {
+            console.log(value)
+        })
+
+        let promise_Settled = Promise.allSettled([promise_eg1, promise_eg2, promise_eg4])
+        promise_Settled.then((value) => {
+            console.log(value)
+        })
+
+        let promise_race = Promise.race([promise_eg1, promise_eg2, promise_eg3])
+        promise_race.then((value) => {
+            console.log(value)
+        })
+
+        let promise_any = Promise.any([promise_eg1, promise_eg2, promise_eg4])
+        promise_any.then((value) => {
+            console.log(value)
+        })
+
+        let promise_resolve = Promise.resolve(190)
+        // let promise_reject = Promise.reject(new Error("Error is bothering you"))
+
+
+    </script>
+</body>
+
+</html>

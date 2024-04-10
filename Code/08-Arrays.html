@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // Arrays in JavaScript are used to store multiple values in a single variable. They are a special type of object that provides a way to store and organize data in an indexed manner.
+
+// You can create an array using array literals or the Array constructor:
+
+// Using array literals
+const fruitss = ['apple', 'banana', 'cherry'];
+
+// Using the Array constructor
+const numbers = new Array(1, 2, 3, 4, 5);
+
+// Accessing Array Elements
+// Arrays in JavaScript are zero-indexed, meaning the index starts at 0:
+const fruits = ['apple', 'banana', 'cherry'];
+console.log(fruits[0]);  // Output: 'apple'
+console.log(fruits[1]);  // Output: 'banana'
+
+// Modifying Array Elements
+// You can modify array elements by assigning new values:
+const fruitts = ['apple', 'banana', 'cherry'];
+fruitts[1] = 'blueberry';
+console.log(fruitts);  // Output: ['apple', 'blueberry', 'cherry']
+
+// Array Properties
+// Arrays in JavaScript also have several properties like length, which returns the number of elements in the array:
+const fruiits = ['apple', 'banana', 'cherry'];
+console.log(fruiits.length);  // Output: 3
+
+// Nested Arrays
+// You can also create nested arrays, which are arrays containing other arrays:
+const matrix = [[1, 2], [3, 4], [5, 6]];
+console.log(matrix[0][1]);  // Output: 2
+
+///////////////////// Array Methods /////////////////////
+
+// 1. push()
+// Adds one or more elements to the end of an array and returns the new length.
+const numbers1 = [1, 2];
+numbers1.push(3); // [1, 2, 3]
+
+
+// 2. pop()
+// Removes the last element from an array and returns that element.
+const numbers2 = [1, 2, 3];
+const lastNumber = numbers2.pop(); // 3
+
+
+// 3. shift()
+// Removes the first element from an array and returns that element.
+const numbers3 = [1, 2, 3];
+const firstNumber = numbers3.shift(); // 1
+
+
+// 4. unshift()
+// Adds one or more elements to the beginning of an array and returns the new length.
+const numbers4 = [1, 2];
+numbers4.unshift(0); // [0, 1, 2]
+
+
+// 5. slice()
+// Returns a shallow copy of a portion of an array into a new array.
+const numbers5 = [1, 2, 3];
+const slicedNumbers = numbers5.slice(1, 2); // [2]
+
+
+// 6. splice()
+// Changes the contents of an array by removing or replacing elements.
+const numbers6 = [1, 2, 3];
+numbers6.splice(1, 1, 4); // [1, 4, 3]
+
+
+// 7. concat()
+// Merges two or more arrays and returns a new array.
+const numbers7 = [1];
+const moreNumbers = numbers7.concat([2, 3]); // [1, 2, 3]
+
+
+// 8. join()
+// Joins all elements of an array into a string.
+const numbers8 = [1, 2, 3];
+const numberString = numbers8.join('-'); // '1-2-3'
+
+
+// 9. indexOf()
+// Returns the first index at which a given element can be found in the array, or -1 if it is not present.
+const numbers9 = [1, 2, 3];
+const index = numbers9.indexOf(2); // 1
+
+
+// 10. lastIndexOf()
+// Returns the last index at which a given element can be found in the array, or -1 if it is not present.
+const numbers10 = [1, 2, 3, 2];
+const lastIndex = numbers10.lastIndexOf(2); // 3
+
+
+// 11. forEach()
+// Executes a provided function once for each array element.
+const numbers11 = [1, 2, 3];
+numbers11.forEach(num => console.log(num)); // logs each number
+
+
+// 12. map()
+// Creates a new array with the results of calling a provided function on every element.
+const numbers12 = [1, 2, 3];
+const squaredNumbers = numbers12.map(num => num * num); // [1, 4, 9]
+
+
+// 13. filter()
+// Creates a new array with all elements that pass the test provided by a function.
+const numbers13 = [1, 2, 3];
+const filteredNumbers = numbers13.filter(num => num > 1); // [2, 3]
+
+
+// 14. reduce()
+// Executes a reducer function on each element, resulting in a single output value.
+const numbers14 = [1, 2, 3];
+const sum = numbers14.reduce((acc, curr) => acc + curr, 0); // 6
+
+
+// 15. every()
+// Tests whether all elements in the array pass the test provided by a function.
+const numbers15 = [1, 2, 3];
+const allNumbersGreaterThanZero = numbers15.every(num => num > 0); // true
+
+
+// 16. some()
+// Tests whether at least one element in the array passes the test provided by a function.
+const numbers16 = [1, 2, 3];
+const someNumbersGreaterThanTwo = numbers16.some(num => num > 2); // true
+
+
+// 17. find()
+// Returns the first element in the array that satisfies a provided testing function.
+const numbers17 = [1, 2, 3];
+const foundNumber = numbers17.find(num => num > 1); // 2
+
+
+// 18. findIndex()
+// Returns the index of the first element in the array that satisfies a provided testing function.
+const numbers18 = [1, 2, 3];
+const foundIndex = numbers18.findIndex(num => num > 1); // 1
+
+
+// 19. includes()
+// Determines whether an array includes a certain value, returning true or false.
+const numbers19 = [1, 2, 3];
+const includesTwo = numbers19.includes(2); // true
+
+
+// 20. reverse()
+// Reverses the elements of an array in place.
+const numbers20 = [1, 2, 3];
+numbers20.reverse(); // [3, 2, 1]
+
+
+// 21. sort()
+// Sorts the elements of an array in place and returns the sorted array.
+const numbers21 = [3, 1, 2];
+numbers21.sort(); // [1, 2, 3]
+
+
+// 22. flat()
+// Creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
+const numbers22 = [1, [2, [3]]];
+const flatNumbers = numbers22.flat(2); // [1, 2, 3]
+
+
+// 23. flatMap()
+// Maps each element using a function and then flattens the result into a new array.
+const numbers23 = [1, 2, 3];
+const flatMappedNumbers = numbers23.flatMap(num => [num, num * 2]); // [1, 2, 2, 4, 3, 6]
+
+
+// 24. Array.from()
+// Creates a new, shallow-copied Array instance from an array-like or iterable object.
+const numbers24 = Array.from('123'); // ['1', '2', '3']
+
+
+// 25. Array.isArray()
+// Determines whether the passed value is an Array.
+const numbers25 = [1, 2, 3];
+const isArray = Array.isArray(numbers25); // true
+
+
+
+//=== In JavaScript, you can iterate over arrays using various types of loops, each offering different methods and functionalities. Here are some common ways to loop through arrays:
+
+// 1. For Loop
+// You can use a for loop to iterate over each element in an array by using its index:
+const fruits1 = ['apple', 'banana', 'cherry'];
+
+for (let i = 0; i < fruits1.length; i++) {
+  console.log(fruits1[i]);  // Outputs each fruit in the array
+}
+
+// 2. For...of Loop
+// The for...of loop provides a more concise way to iterate over the elements of an array without using an index:
+const fruits2 = ['apple', 'banana', 'cherry'];
+for (const fruit of fruits2) {
+  console.log(fruit);  // Outputs each fruit in the array
+}
+
+// 3. ForEach Method
+// Arrays in JavaScript have a built-in forEach() method that executes a provided function once for each array element:
+const fruits3 = ['apple', 'banana', 'cherry'];
+fruits3.forEach(function(fruit) {
+  console.log(fruit);  // Outputs each fruit in the array
+});
+
+// 4. Map Method
+// The map() method creates a new array by applying a function to each element in an existing array:
+const numberss = [1, 2, 3];
+const squaredNumberss = numberss.map(function(num) {
+  return num * num;
+});
+console.log(squaredNumberss);  // Outputs [1, 4, 9]
+
+// 5. While Loop
+// You can use a while loop to iterate over an array based on a condition:
+const fruits4 = ['apple', 'banana', 'cherry'];
+let j = 0;
+
+while (j < fruits.length) {
+  console.log(fruits[j]);  // Outputs each fruit in the array
+  j++;
+}
+
+// 6. Do...While Loop
+// The do...while loop is similar to a while loop but ensures that the loop body executes at least once before checking the condition:
+const fruits5 = ['apple', 'banana', 'cherry'];
+let i = 0;
+do {
+  console.log(fruits[i]);  // Outputs each fruit in the array
+  i++;
+} while (i < fruits.length);
+  </script>
+</body>
+</html>

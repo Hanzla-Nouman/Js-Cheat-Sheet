@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <span id="firstspan" data-game="mario" data-player="hanxla"> <h1 id="fst">HELLO WORLD</h1></span>
+   <span id="first"><b>Hi</b>Hey I am span</span>
+    <h1 id="third" hidden>HELLO THIRD</h1>
+    <div id="fourth" >I am fourth element</div>
+    <script>
+        ///////////////// console.dir Function ////////////////////
+        // console.log shows the element DOM tree
+        // console.dir shows the element as an object with its proprties
+
+        ///////////////// innerHTML ////////////////////
+        // the innerHTML propperty allows to get the html inside the element as a string // valid for elemnt nodes only
+        
+        // let first = document.getElementById("first")
+        console.log(first.innerHTML)
+        first.innerHTML = "<h1>HANXY</h1>"
+        
+        
+        ///////////////// outerHTML ////////////////////
+        // the outerHTML propperty contsins the full HTML i.e innerHTML + the element itself
+        // innerHTML is valid only for element nodes.For other node types we can use "nodeValue" or "data"
+        console.log(fst.outerHTML)
+        fst.outerHTML = "<h3>H1</h3><h1>HANXO</h1>"
+        
+        
+        ///////////////// textContent ////////////////////
+        // Provides access to the text inside the element: only text minus all tags
+        // console.log(document.body.textContent) //use to accesss all the text in website
+        console.log(document.body.firstElementChild.textContent) 
+        
+        
+        ///////////////// hidden property ////////////////////
+        // The "hidden" attribute and the DOM property specifies whether the element is visible or not
+        third.hidden = false
+        
+        
+        
+        </script>
+</body>
+</html>

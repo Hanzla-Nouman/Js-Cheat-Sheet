@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    //--------------------- the error object ------------------------
+    // For all the built-in errors,the error object has two main proprties:
+    // There are many types of errors like reference error. For more visit mdn docs
+    name = "Hanxa"
+    try{
+        if(name === "Hanxa"){
+          throw new ReferenceError("Hanxa is error")
+        }
+    //    hey;  // error Variable not defined
+    }catch(err){
+        console.log(err.name)
+        console.log(err.message)
+        console.log(err.stack)
+    }
+    </script>
+</body>
+</html>

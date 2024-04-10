@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // In JavaScript, variables are used to store data values that can be manipulated and referenced in your code. Variables in JavaScript can be declared using the var, let, or const keywords. Here's an overview of how you can work with variables in JavaScript:
+ 
+// 1. Declaring Variables
+
+// Using var
+// The var keyword has been traditionally used for variable declaration in JavaScript. Variables declared with var have function scope or global scope, but they are not block-scoped.
+
+var nameVar = 'John';
+var ageVar = 30;
+
+
+// Using let
+// The let keyword was introduced in ES6 and is block-scoped. This means that variables declared with let have a scope limited to the block, statement, or expression where they are defined.
+
+let nameLet = 'Jane';
+let ageLet = 25;
+
+
+// Using const
+// The const keyword is also block-scoped but is used for declaring variables whose values should not be re-assigned after initialization. However, note that for objects and arrays declared with const, their properties or elements can still be modified.
+
+const nameConst = 'Doe';
+const ageConst = 35;
+
+
+// 2. Variable Naming Rules
+// Variable names must begin with a letter, underscore _, or dollar sign $. They cannot begin with a number.
+// Variable names are case-sensitive (age and Age would be different variables).
+// You can use letters, numbers, underscores, and dollar signs in variable names.
+// JavaScript variable names conventionally use camelCase
+
+
+// 3. Initializing Variables
+// You can initialize variables during declaration or assign values to them later in your code.
+
+let firstName = 'Alice';  // Initializing during declaration
+let lastName;  // Declaring without initialization
+lastName = 'Smith';  // Assigning value later
+
+
+// 4. Scope of Variables
+// Understanding the scope of variables is crucial in JavaScript:
+
+// Global Scope: Variables declared outside any function have a global scope and can be accessed throughout the JavaScript code.
+// Function Scope: Variables declared within a function have a function scope and are accessible only within that function.
+// Block Scope: Variables declared with let and const have block scope, which means they are accessible only within the block (e.g., within curly braces {}) where they are defined.
+  </script>
+</body>
+</html>
+
+

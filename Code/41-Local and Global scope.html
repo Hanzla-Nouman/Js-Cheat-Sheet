@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+//====================== Local,Global & Block Scopes =======================
+
+// Javascript has 3 types of scopes:
+// 1. Block Scope
+// 1. Function Scope
+// 1. Global Scope
+
+// "let" and "const" provide block level scope which means that the variable declared inside a { } cannot be accessed from outside the block
+
+        {
+            let a = 100;
+        }
+        // console.log(a)  // "a" is not available here
+
+        {
+            var b = 100;
+        }
+        console.log(b)
+
+// Variable declared within a Javascript function, become local to the function
+// A variable declared outside a function, becomes global
+
+    let d = 500;
+    function abc(){
+        let c = 200
+        console.log(c)
+        console.log(d)  // can be accessed
+    }
+    abc()
+    //  console.log(c) // Cannot be accessed
+
+    
+    </script>
+</body>
+</html>

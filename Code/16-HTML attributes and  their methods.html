@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span id="firstspan" data-game="mario" data-player="hanxla"> <h1 id="fst">HELLO WORLD</h1></span>
+   <span id="first"><b>Hi</b>Hey I am span</span>
+    <h1 id="third" hidden>HELLO THIRD</h1>
+    <div id="fourth" >I am fourth element</div>
+    <script>
+        ///////////////// HTML Attributes and their methods ////////////////////
+
+        // getAttribute => used to get the value of an attribute
+        let fourth4 = fourth.getAttribute("id")
+        console.log(fourth4)
+        // hasAttribute => used to check for an existence of an attribute
+        console.log(fourth.hasAttribute("class"))
+        console.log(fourth.hasAttribute("id"))
+        // setAttribute => used to check for an existence of an attribute
+        fourth.setAttribute("hidden", "true")
+        fourth.setAttribute("class", "hanxi")
+        // removeAttribute => used to remove the attribute
+        fourth.removeAttribute("class")
+        // attributes => used to get the collection of all attributes
+        console.log(third.attributes)
+        // data-* attributes => We can always create custom attributes but the ones starting with "data-" are reserved for programmers use
+        console.log(firstspan.dataset)
+        console.log(firstspan.dataset.player)
+        console.log(firstspan.dataset.game)
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const sayHello = () => console.log("Hello");
+        sayHello()
+        
+        const sayHello2 = name => console.log("Hello " + name);
+        sayHello2("Hanzla")
+
+        const sayHello3 = (name,greeting) => console.log(greeting + name);
+        sayHello3("Good Morning" ,"Hanzla")
+
+        const x = {
+            name: "hanzla",
+            role: "developer",
+            exp: 40,
+            show: function(){
+                console.log(this) // Object
+                that = this
+                setTimeout(function(){
+                    // console.log(this) // Window object
+
+                    console.log(`The name is ${this.name} \n The Role is ${this.role}`) 
+
+                    console.log(`The name is ${that.name} \n The Role is ${that.role}`)  // To Fix
+
+                }, 2000)
+            }
+                }
+
+            x.show()
+    </script>
+</body>
+</html>

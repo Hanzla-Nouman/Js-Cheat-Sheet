@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    
+//============================ Method Overriding ===============================
+
+// In JavaScript, method overriding is a concept where a child class provides a specific implementation for a method that is already defined in its parent class. This allows you to customize the behavior of a method in the child class while still maintaining the overall structure and functionality defined in the parent class.
+
+// Keep in mind that super can only be used within methods of a subclass and is used to reference the superclass and call its methods. If you attempt to use super outside of a class method or in a non-derived class, it will result in a syntax error
+
+class Employee{
+    login(){
+        console.log("Employee has logged in")
+    }
+    sigin(){
+        console.log("Employee has signed in")
+    }
+    requestLeaves(x){
+        console.log(`Employee has granted ${x} leaves`)
+    }
+}
+
+class Programmer extends Employee{
+    requestCoffee(x){
+        console.log(`Employee has granted ${x} Cups of Coffees`)
+    }
+    requestLeaves(x){
+        super.requestLeaves(9)
+        console.log("One extra is granted")
+    }
+}
+
+let hanzla = new Programmer
+hanzla.login
+hanzla.requestCoffee(17)
+hanzla.requestLeaves(5)
+
+//========================= Overriding Constructor ==============================
+// With a constructor, things are a bit tricky/different. According to the specification, if a class extends another class and has no constructor , then the following empty constructor is generated:
+    class Animal{
+        constructor(){
+
+        }
+
+        run(){
+            console.log("Animal is running")
+        }
+    }
+    class Monkey extends Animal{
+
+        // auto generated
+        // Happens if we don't write our own constructor
+         constructor(...arg){
+         super(...arg)
+        }
+        eat(){
+            console.log("Monkey is eating Banana")
+        }
+    }
+    // Constructor in inheriting classes must call super(...) and do it before using this 
+    // So we can also use super.method() in a Child method to call Parent method
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // In JavaScript, functions are reusable blocks of code designed to perform a particular task. They allow you to define a set of instructions that can be executed one or more times, either by invoking the function explicitly or as part of an event-driven or callback-based execution flow. Here's a brief explanation of functions in JavaScript:
+
+
+// 1. Function Declaration
+// You can declare a function using the function keyword followed by the function name, parameters enclosed in parentheses, and the function body enclosed in curly braces {}.
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+console.log(greet('John'));  // Outputs: "Hello, John!"
+
+
+// 2. Function Expression
+// A function expression defines a function as part of a variable assignment. Function expressions can be anonymous or named.
+const greet = function(name) {
+  return `Hello, ${name}!`;
+};
+console.log(greet('Jane'));  // Outputs: "Hello, Jane!"
+
+
+// 3. Arrow Functions
+// Introduced in ES6, arrow functions provide a more concise syntax for writing functions, especially for shorter function expressions.
+const greet = (name) => `Hello, ${name}!`;
+console.log(greet('Doe'));  // Outputs: "Hello, Doe!"
+
+
+// 4. Function Parameters and Arguments
+// Functions can accept parameters, which act as placeholders for the values you pass when invoking the function.
+function add(a, b) {
+  return a + b;
+}
+console.log(add(5, 3));  // Outputs: 8
+
+
+// 5. Return Statement
+// Functions can return values using the return statement. If no return statement is present, the function returns undefined.
+function multiply(a, b) {
+  return a * b;
+}
+const result2 = multiply(4, 2);
+console.log(result2);  // Outputs: 8
+
+
+// 6. Function Scope
+// Variables declared inside a function are local to that function and are not accessible outside of it, unless explicitly returned or referenced.
+function localVariableExample() {
+  const localVar = 'I am local';
+  console.log(localVar);  // Outputs: "I am local"
+}
+console.log(localVar);  // Throws ReferenceError
+
+
+// 7. Higher-Order Functions
+// JavaScript functions can also accept other functions as arguments or return functions, known as higher-order functions.
+function higherOrderFunction(operation, a, b) {
+  return operation(a, b);
+}
+const result = higherOrderFunction((x, y) => x + y, 3, 4);
+console.log(result);  // Outputs: 7
+  </script>
+</body>
+</html>
+

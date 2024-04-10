@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // In JavaScript, loops are used to execute a block of code repeatedly until a certain condition is met
+    
+  //======================== For Loops =============================//
+
+  // The for loop is commonly used when you know how many times you want to execute the code.
+
+           //================ Program to add first n natural numbers
+           let sum = 0
+           let n = prompt("Enter the value of n")
+           n = Number.parseInt(n)
+           for (let i = 0; i < n; i++) {
+             sum += (i + 1)
+             // console.log((i+1), "+")
+           }
+           console.log("Sum of first " + n + " natural numbers is " + sum)
+           // console.log(i)
+           
+           let obj = {
+             harry: 90,
+             shubh: 45,
+             shivika: 56,
+             ritika: 57,
+             shiv: 23
+           }
+           
+           // For in loop  
+          //  The for...in loop iterates over the enumerable properties of an object. It's often used for iterating over object properties
+           for (let a in obj) {
+             console.log("Marks of " + a + " are " + obj[a])
+           }
+           
+           // For of loop
+          //  The for...of loop is introduced in ES6 and is used to loop over iterable objects like arrays, strings, maps, sets, etc.
+           for (let b of "Harry") {
+             console.log(b)
+           }
+           
+           //////////////////////////// While Loop /////////////////////////
+           // while loop
+          //  The while loop is used when you want to execute a block of code as long as a specified condition is true
+           let nop = prompt("Enter the value of nop")
+           nop = Number.parseInt(nop)
+           
+           let iop = 0;
+           while(iop<nop){
+             console.log(iom)
+             iom++;
+           }
+           
+           //==================== do- while loop =====================//
+           
+          //  The do...while loop is similar to the while loop, but it always executes the block of code at least once before checking the condition
+
+           let nom = prompt("Enter the value of nom")
+           nom = Number.parseInt(nom)
+           
+           let iom = 10;
+           do{
+             console.log(iom)
+             iom++;
+           }while (iom < nom) 
+           
+  </script>
+</body>
+</html>
+ 
+  

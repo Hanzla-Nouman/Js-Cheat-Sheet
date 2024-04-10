@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //========================= Getters & Setters =============================
+    // Classes may include getters and setters to get and set the computed properties
+    // Example:
+       // class Person{
+       // ...
+       //  get name(){
+       //     retrun  this._name;
+       //    }
+       //
+       //  set name(newName){
+       //       this._name = newName;
+       //    }
+       // }
+       // First the name property is changed to _name to avoid the name collision with the getter & setter. Then the getter use the get keyword as shown above
+
+
+       class Animal{
+        constructor(name){
+            this.name2 = name 
+        }
+        fly(){
+            console.log(this.name+" is flyng")
+        }
+        get name(){
+            return this.name2
+        }
+        set name(newName){
+             this.name2 = newName
+        }
+       }
+
+       class Birds extends Animal{
+        chirp(){
+            console.log("Bird is chirping")
+        }
+       }
+
+       let lion = new Animal("Lion")
+       lion.fly()
+       console.log(lion.name)
+       lion.name = "TIGER"
+       console.log(lion.name)
+
+       //======================== instanceof Operator ==========================
+       // The instaceof operator allows to check whether an object belongs to a certain class.
+       // Syntax:
+       // <obj> instanceof <class>
+       // It returns true if obj belongs to the class or any other class inheriting from it
+       
+       let tiger = 99;
+       let sparrow = new Birds;
+       console.log(lion instanceof Animal)
+       console.log(tiger instanceof Animal)
+       console.log(sparrow instanceof Animal)
+    </script>
+</body>
+</html>

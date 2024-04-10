@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+ //=========================== Constructor ===============================
+
+ //  A constructor enables you to provide any custom initialization that must be done before any other methods can be called on an instantiated object.
+ //  A class cannot have more than one constructor method.
+ // If you don't provide your own constructor, then a default constructor will be supplied for you
+        class RailwayForm{
+             
+         constructor(givenname,ticketNumber,timetrain){
+            console.log("Constructor called")
+            this.name = givenname
+            this.ticket = ticketNumber
+            this.time = timetrain
+         }
+            preview(){
+                console.log(` Name: ${this.name} \n Train Number: ${this.ticket} \n Time: ${this.time}`)
+            }
+            submit(){
+                console.log(this.name+": Submitted for train number: " + this.ticket + " for "+ this.time)
+            }
+            cancel(){
+                console.log(this.name+": Cancelled for train number: "+this.ticket+ " for "+ this.time) 
+                this.time = 0;
+                this.ticket = 0;
+            }
+            fill(givenname,ticketNumber){
+                this.name = givenname
+                this.ticket = ticketNumber
+            }
+        }
+
+       let  hanzlaForm  = new RailwayForm("Hanzla Nouman",454567,"09:00 pm")
+        hanzlaForm.preview()
+        hanzlaForm.submit()
+        hanzlaForm.cancel()
+        hanzlaForm.preview()
+
+    </script>
+</body>
+</html>

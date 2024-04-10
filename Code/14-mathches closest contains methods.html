@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="box" id="id1">This is an elem 1 <span id="sp1">Span 1</span></div>
+    <div class="box" id="id2">This is an elem 2</div>
+    
+    <script>
+        ////////////////// mathches ///////////////////
+        // To check if element matches the given CSS selector
+
+        let id1 = document.getElementById("id1")
+        console.log(id1)
+        console.log(id1.matches(".boxes"))
+        console.log(id1.matches(".box"))
+
+        ////////////////// closest ///////////////////
+        // To look for the nearest ancestor that matches the given CSS selector.The elem
+        // also check itself
+        let sp1 = document.getElementById("sp1")
+        console.log(sp1.closest("#id1"))
+        
+        ////////////////// contains ///////////////////
+        // returns true if elemB is inside elemA( a descendant of eleA) or when elemA == elemB
+        console.log(id1.contains(sp1))
+        console.log(sp1.contains(id1))
+        console.log(sp1.contains(sp1))
+        
+         
+
+    </script>
+</body>
+</html>

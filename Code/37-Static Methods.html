@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+//================================ Static Method ======================================
+
+// Static Methods are used to implement functions that belong to a class as a whole and not to any particular object.
+
+// static methods are not available for individual objects
+// We cant do like this from given code:
+//          console.log("Animal " + this.captilize(this.name)  + "is walking") 
+
+class Animal{
+    constructor(name){
+        this.name = name
+    }
+    walk(){
+        console.log("Animal " + Animal.captilize(this.name)  + "is walking")    
+    }
+    
+     static captilize(name){
+        return name.charAt(0).toUpperCase() + name.substr(1,name.length)
+    }
+}
+
+// monkey = new Animal(Animal.captilize("chimpanzi")) //Can also be used like this
+monkey = new Animal("chimpanzi")
+monkey.walk()
+
+    </script>
+</body>
+</html>

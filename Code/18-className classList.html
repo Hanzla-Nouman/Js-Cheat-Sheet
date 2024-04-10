@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg-success{
+            background-color: aqua;
+        }
+        .bg-primary{
+            background-color:  rosybrown;
+        }
+        .text-color{
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div id="firstelem" class="text-color bg-primary">HEY</div>
+    <span>MY NAME IS HANXY</span>
+    <script>
+        /////////////// className ////////////////////
+        // if we assign something to elem.className, it replaces the whole string of classes
+        firstelem.className = "bg-success"
+        
+        /////////////// classList ////////////////////
+        // often we want to add/remove/toggle a single class
+    firstelem.classList.add("text-color")    // => add a class
+    // firstelem.classList.remove("text-color") // => remove a class
+    // firstelem.classList.toggle("text-color") // => add or remove a class
+    console.log(firstelem.classList.contains("text-color")) // => return true if class exists or vice versa
+    </script>
+</body>
+</html>
